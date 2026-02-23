@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material.css — Demo</title>
+  <link rel="stylesheet" href="material.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Components</a>
+    <a href="#">Guidelines</a>
+    <a href="#">About</a>
+  </nav>
+  <h1>Material.css</h1>
+  <p>A classless CSS library following Material Design 3. Drop it in, write semantic HTML, get beautiful results.</p>
+</header>
+
+<main>
+
+  <section>
+    <h2>Typography Scale</h2>
+    <h1>Display — Heading One</h1>
+    <h2>Headline Large — Heading Two</h2>
+    <h3>Headline Medium — Heading Three</h3>
+    <h4>Headline Small — Heading Four</h4>
+    <h5>Title Large — Heading Five</h5>
+    <h6>Title Medium — Heading Six</h6>
+
+    <p>Body text at its natural size. Material Design 3 uses a clean, humanist type scale with careful optical sizing. <strong>Bold weight is applied with 600</strong>. <em>Italic text flows naturally</em>. Links look like <a href="#">this hyperlink</a>.</p>
+
+    <p>Inline elements: <mark>highlighted text</mark>, <code>inline code</code>, <kbd>⌘K</kbd>, <del>deleted</del>, <ins>inserted</ins>, <abbr title="Material Design">MD3</abbr>, <small>small text</small>, sub<sub>2</sub>, super<sup>2</sup>, and <samp>terminal output</samp>.</p>
+  </section>
+
+  <section>
+    <h2>Lists</h2>
+    <ul>
+      <li>Unordered list — primary bullet</li>
+      <li>Another item with a nested list
+        <ul>
+          <li>Outlined nested bullet A</li>
+          <li>Outlined nested bullet B</li>
+        </ul>
+      </li>
+      <li>Third item here</li>
+    </ul>
+
+    <ol>
+      <li>First numbered item</li>
+      <li>Second item with child list
+        <ol>
+          <li>Sub-item one</li>
+          <li>Sub-item two</li>
+        </ol>
+      </li>
+      <li>Third item</li>
+    </ol>
+
+    <dl>
+      <dt>Material Design</dt>
+      <dd>A design system created by Google for building high-quality digital experiences.</dd>
+      <dt>Design Token</dt>
+      <dd>A named entity that stores a visual design attribute, such as a color, font, or spacing value.</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Blockquote</h2>
+    <blockquote>
+      <p>Material Design is a design system backed by open-source code, helping teams build high-quality digital experiences for Android, iOS, Flutter, and the web.</p>
+      <cite>Material Design 3 Documentation</cite>
+    </blockquote>
+  </section>
+
+  <section>
+    <h2>Code</h2>
+    <pre><code>// Material Design token usage
+const theme = {
+  color: {
+    primary: 'var(--md-primary)',
+    surface: 'var(--md-surface)',
+    onSurface: 'var(--md-on-surface)',
+  },
+  shape: {
+    full: 'var(--md-shape-full)',
+    lg: 'var(--md-shape-lg)',
+  }
+};</code></pre>
+    <p>Inline <code>code snippet</code> and keyboard shortcut <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>.</p>
+  </section>
+
+  <section>
+    <h2>Table</h2>
+    <caption>Team Tasks</caption>
+    <table>
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Assignee</th>
+          <th>Priority</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Update design system tokens</td>
+          <td>Maria K.</td>
+          <td>High</td>
+          <td><button>Edit</button> <button>Archive</button></td>
+        </tr>
+        <tr>
+          <td>Write accessibility docs</td>
+          <td>James T.</td>
+          <td>Medium</td>
+          <td><button>Edit</button></td>
+        </tr>
+        <tr>
+          <td>QA mobile breakpoints</td>
+          <td>Ana S.</td>
+          <td>Low</td>
+          <td><button>Edit</button> <input type="submit" value="Close"></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">Total items</td>
+          <td>3</td>
+        </tr>
+      </tfoot>
+    </table>
+  </section>
+
+  <section>
+    <h2>Forms</h2>
+    <form>
+      <fieldset>
+        <legend>Account Details</legend>
+        <label for="name">Display name</label>
+        <input type="text" id="name" placeholder="Your name">
+
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="you@example.com">
+
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Minimum 8 characters">
+
+        <label for="url">Website</label>
+        <input type="url" id="url" placeholder="https://example.com">
+      </fieldset>
+
+      <fieldset>
+        <legend>Preferences</legend>
+        <label for="region">Region</label>
+        <select id="region">
+          <option>Select a region...</option>
+          <option>Americas</option>
+          <option>Europe, Middle East & Africa</option>
+          <option>Asia Pacific</option>
+        </select>
+
+        <label for="bio">About you</label>
+        <textarea id="bio" placeholder="Tell us a little about yourself..."></textarea>
+
+        <label for="density">UI Density</label>
+        <input type="range" id="density" min="0" max="100" value="60">
+
+        <label><input type="checkbox"> Enable dark mode</label>
+        <label><input type="checkbox" checked> Send digest emails</label>
+        <label><input type="radio" name="plan"> Free plan</label>
+        <label><input type="radio" name="plan" checked> Pro plan</label>
+
+        <label for="brand-color">Brand color</label>
+        <input type="color" id="brand-color" value="#1a73e8">
+
+        <label for="avatar">Upload avatar</label>
+        <input type="file" id="avatar" accept="image/*">
+      </fieldset>
+
+      <input type="submit" value="Save changes">
+      <button>Secondary</button>
+      <input type="reset" value="Discard">
+    </form>
+  </section>
+
+  <section>
+    <h2>Buttons</h2>
+    <button>Filled Button</button>
+    <input type="button" value="Tonal Button">
+    <input type="submit" value="Submit">
+    <input type="reset" value="Outlined">
+    <button disabled>Disabled</button>
+  </section>
+
+  <section>
+    <h2>Progress & Meter</h2>
+    <label>Upload progress</label>
+    <progress value="65" max="100"></progress>
+    <label>Quality score</label>
+    <meter value="0.75" min="0" max="1" low="0.3" high="0.6" optimum="1"></meter>
+  </section>
+
+  <section>
+    <h2>Expansion Panels</h2>
+    <details>
+      <summary>What is Material Design 3?</summary>
+      <p>Material Design 3 (also called Material You) is Google's latest design system. It introduces dynamic color, updated typography, and an expressive, adaptive approach to UI components.</p>
+    </details>
+    <details open>
+      <summary>Why use a classless library?</summary>
+      <p>Classless CSS libraries let you write clean, semantic HTML without adding utility classes to every element. Your markup stays readable and your styles stay in one place — the stylesheet.</p>
+    </details>
+    <details>
+      <summary>Is it accessible?</summary>
+      <p>Yes. Every interactive element uses focus-visible for keyboard accessibility, sufficient color contrast ratios, and semantic HTML structures throughout.</p>
+    </details>
+  </section>
+
+  <aside>
+    <p><strong>Tip:</strong> You can customize the entire library by overriding the CSS custom properties in <code>:root</code>. Change <code>--md-primary</code> to shift the entire color palette.</p>
+  </aside>
+
+  <article>
+    <h3>Article Component</h3>
+    <p>This <code>&lt;article&gt;</code> sits in a surface container card. It lifts slightly on hover. No class names were used to achieve this — just semantic HTML and the stylesheet.</p>
+    <address>Published by <a href="mailto:author@material.css">The Author</a></address>
+  </article>
+
+  <section>
+    <h2>Horizontal Rule</h2>
+    <hr>
+    <p>A subtle 1px divider, consistent with Material's surface and outline system.</p>
+  </section>
+
+  <section>
+    <h2>Media</h2>
+    <figure>
+      <img src="https://picsum.photos/800/400" alt="A sample image">
+      <figcaption>Figure 1 — A sample image with rounded corners and elevation.</figcaption>
+    </figure>
+  </section>
+
+</main>
+
+<footer>
+  <p>material.css — no classes required — built on Material Design 3 tokens — 2026</p>
+</footer>
+
+</body>
+</html>

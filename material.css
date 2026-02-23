@@ -1,0 +1,1358 @@
+/* ============================================================
+   MATERIAL.CSS — A Classless CSS Library in Material Design 3 Style
+   Every HTML element styled. No classes needed.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Display:wght@400;500;700&family=Google+Sans+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap');
+
+/* ============================================================
+   DESIGN TOKENS — Material Design 3
+   ============================================================ */
+
+:root {
+  /* Primary tonal palette */
+  --md-primary:           #1a73e8;
+  --md-on-primary:        #ffffff;
+  --md-primary-container: #d3e3fd;
+  --md-on-primary-container: #0c2d6b;
+
+  /* Secondary */
+  --md-secondary:           #5e6ad2;
+  --md-secondary-container: #e2e1f5;
+  --md-on-secondary-container: #1a1a6e;
+
+  /* Tertiary */
+  --md-tertiary:           #146c2e;
+  --md-tertiary-container: #b7f0be;
+
+  /* Error */
+  --md-error:           #b3261e;
+  --md-error-container: #f9dedc;
+  --md-on-error:        #ffffff;
+
+  /* Surface & Background */
+  --md-surface:           #fffbfe;
+  --md-surface-dim:       #ded8e1;
+  --md-surface-bright:    #fffbfe;
+  --md-surface-container-lowest:  #ffffff;
+  --md-surface-container-low:     #f7f2fa;
+  --md-surface-container:         #f3edf7;
+  --md-surface-container-high:    #ece6f0;
+  --md-surface-container-highest: #e6e0e9;
+  --md-on-surface:        #1c1b1f;
+  --md-on-surface-variant: #49454f;
+  --md-outline:           #79747e;
+  --md-outline-variant:   #cac4d0;
+
+  /* Scrim & shadow */
+  --md-scrim: rgba(0,0,0,0.32);
+
+  /* Elevation shadows (tonal + real) */
+  --md-elevation-1: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+  --md-elevation-2: 0 1px 2px rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15);
+  --md-elevation-3: 0 4px 8px 3px rgba(0,0,0,0.15), 0 1px 3px rgba(0,0,0,0.3);
+  --md-elevation-4: 0 6px 10px 4px rgba(0,0,0,0.15), 0 2px 3px rgba(0,0,0,0.3);
+  --md-elevation-5: 0 8px 12px 6px rgba(0,0,0,0.15), 0 4px 4px rgba(0,0,0,0.3);
+
+  /* Shape */
+  --md-shape-none:    0px;
+  --md-shape-xs:      4px;
+  --md-shape-sm:      8px;
+  --md-shape-md:      12px;
+  --md-shape-lg:      16px;
+  --md-shape-xl:      28px;
+  --md-shape-full:    9999px;
+
+  /* Typography scale */
+  --md-font-body:    'DM Sans', 'Google Sans', system-ui, sans-serif;
+  --md-font-mono:    'DM Mono', 'Google Sans Mono', 'Courier New', monospace;
+  --md-font-display: 'DM Sans', 'Google Sans Display', sans-serif;
+
+  /* State layer opacities */
+  --md-state-hover:   0.08;
+  --md-state-focus:   0.12;
+  --md-state-pressed: 0.12;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--md-surface);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--md-font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--md-on-surface);
+  background-color: var(--md-surface);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 6rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   TYPOGRAPHY — Material Design 3 Type Scale
+   ============================================================ */
+
+/* Display */
+h1 {
+  font-family: var(--md-font-display);
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--md-on-surface);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Headline Large */
+h2 {
+  font-family: var(--md-font-display);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: var(--md-on-surface);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Headline Medium */
+h3 {
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0;
+  color: var(--md-on-surface);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Headline Small */
+h4 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.33;
+  letter-spacing: 0;
+  color: var(--md-on-surface);
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Title Large */
+h5 {
+  font-size: 1.375rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: var(--md-on-surface);
+  margin-top: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Title Medium */
+h6 {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: var(--md-on-surface);
+  margin-top: 1.25rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Body text */
+p {
+  font-size: 1rem;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+  color: var(--md-on-surface);
+  margin-bottom: 1rem;
+  max-width: 72ch;
+}
+
+strong, b {
+  font-weight: 600;
+  color: var(--md-on-surface);
+}
+
+em, i {
+  font-style: italic;
+}
+
+small {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  letter-spacing: 0.025em;
+  color: var(--md-on-surface-variant);
+}
+
+mark {
+  background-color: var(--md-tertiary-container);
+  color: var(--md-tertiary);
+  padding: 0.1em 0.3em;
+  border-radius: var(--md-shape-xs);
+}
+
+del, s {
+  text-decoration: line-through;
+  color: var(--md-on-surface-variant);
+  text-decoration-color: var(--md-error);
+}
+
+ins {
+  text-decoration: underline;
+  text-decoration-color: var(--md-tertiary);
+  text-underline-offset: 3px;
+}
+
+abbr[title] {
+  text-decoration: underline dotted var(--md-outline);
+  cursor: help;
+}
+
+sub, sup {
+  font-size: 0.65em;
+  font-weight: 500;
+  color: var(--md-primary);
+}
+
+/* ============================================================
+   LINKS
+   ============================================================ */
+
+a {
+  color: var(--md-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: transparent;
+  font-weight: 500;
+  transition: text-decoration-color 150ms ease, background-color 150ms ease;
+  border-radius: var(--md-shape-xs);
+  padding: 1px 3px;
+  margin: -1px -3px;
+}
+
+a:hover {
+  text-decoration-color: var(--md-primary);
+  background-color: rgba(26, 115, 232, 0.08);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--md-primary);
+  outline-offset: 2px;
+}
+
+a:visited {
+  color: var(--md-secondary);
+}
+
+a:active {
+  background-color: rgba(26, 115, 232, 0.16);
+}
+
+/* ============================================================
+   LISTS
+   ============================================================ */
+
+ul, ol {
+  padding-left: 1.75rem;
+  margin-bottom: 1.25rem;
+}
+
+ul {
+  list-style: none;
+}
+
+ul > li {
+  position: relative;
+  padding-left: 0.25rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+ul > li::before {
+  content: '';
+  position: absolute;
+  left: -1.25rem;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--md-primary);
+}
+
+ul ul > li::before {
+  background: none;
+  border: 2px solid var(--md-outline);
+  width: 5px;
+  height: 5px;
+}
+
+ol {
+  list-style: none;
+  counter-reset: md-counter;
+}
+
+ol > li {
+  counter-increment: md-counter;
+  position: relative;
+  padding-left: 0.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+ol > li::before {
+  content: counter(md-counter) '.';
+  position: absolute;
+  left: -1.5rem;
+  font-weight: 500;
+  color: var(--md-primary);
+  font-size: 0.9em;
+}
+
+li ul, li ol {
+  margin-top: 0.4rem;
+  margin-bottom: 0;
+}
+
+dl {
+  margin-bottom: 1.5rem;
+  border-radius: var(--md-shape-md);
+  overflow: hidden;
+  border: 1px solid var(--md-outline-variant);
+}
+
+dt {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--md-primary);
+  background-color: var(--md-surface-container-low);
+  padding: 0.6rem 1rem 0.2rem;
+  text-transform: uppercase;
+}
+
+dd {
+  padding: 0.3rem 1rem 0.75rem;
+  border-bottom: 1px solid var(--md-outline-variant);
+  margin-left: 0;
+  color: var(--md-on-surface-variant);
+  font-size: 0.95rem;
+}
+
+dd:last-child {
+  border-bottom: none;
+}
+
+/* ============================================================
+   BLOCKQUOTE
+   ============================================================ */
+
+blockquote {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem 1.25rem 1.75rem;
+  background: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+  border-radius: var(--md-shape-lg);
+  border-left: 4px solid var(--md-primary);
+  position: relative;
+  box-shadow: var(--md-elevation-1);
+}
+
+blockquote p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: inherit;
+  margin-bottom: 0.5rem;
+}
+
+blockquote cite {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--md-primary);
+  margin-top: 0.75rem;
+}
+
+blockquote cite::before {
+  content: '— ';
+}
+
+q {
+  font-style: italic;
+  color: var(--md-on-surface-variant);
+}
+q::before { content: '\201C'; }
+q::after  { content: '\201D'; }
+
+/* ============================================================
+   CODE & PRE
+   ============================================================ */
+
+code, samp {
+  font-family: var(--md-font-mono);
+  font-size: 0.875em;
+  background-color: var(--md-surface-container-high);
+  color: var(--md-on-surface);
+  padding: 0.15em 0.5em;
+  border-radius: var(--md-shape-xs);
+  font-weight: 400;
+}
+
+kbd {
+  font-family: var(--md-font-mono);
+  font-size: 0.82em;
+  background-color: var(--md-surface-container-highest);
+  color: var(--md-on-surface);
+  padding: 0.15em 0.5em;
+  border-radius: var(--md-shape-xs);
+  border: 1px solid var(--md-outline-variant);
+  box-shadow: 0 1px 0 var(--md-outline-variant);
+}
+
+samp {
+  background-color: #1e2a3a;
+  color: #a8d8a8;
+  border-radius: var(--md-shape-xs);
+}
+
+pre {
+  background-color: #1a1f2e;
+  color: #e0e6f0;
+  padding: 1.5rem;
+  border-radius: var(--md-shape-lg);
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  box-shadow: var(--md-elevation-2);
+  tab-size: 2;
+  position: relative;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.9rem;
+  color: inherit;
+  border-radius: 0;
+}
+
+/* ============================================================
+   HORIZONTAL RULE
+   ============================================================ */
+
+hr {
+  border: none;
+  height: 1px;
+  background: var(--md-outline-variant);
+  margin: 2.5rem 0;
+  position: relative;
+}
+
+/* ============================================================
+   IMAGES & MEDIA
+   ============================================================ */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--md-shape-lg);
+  box-shadow: var(--md-elevation-2);
+  margin: 1.5rem 0;
+}
+
+figure {
+  margin: 2rem 0;
+  border-radius: var(--md-shape-xl);
+  overflow: hidden;
+  box-shadow: var(--md-elevation-3);
+  background: var(--md-surface-container);
+}
+
+figure img {
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  width: 100%;
+  display: block;
+}
+
+figcaption {
+  padding: 0.85rem 1.25rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--md-on-surface-variant);
+  background: var(--md-surface-container);
+}
+
+video, audio {
+  display: block;
+  width: 100%;
+  border-radius: var(--md-shape-lg);
+  box-shadow: var(--md-elevation-2);
+  margin: 1.5rem 0;
+}
+
+iframe {
+  display: block;
+  border: none;
+  border-radius: var(--md-shape-lg);
+  box-shadow: var(--md-elevation-2);
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 2rem 0;
+  border-radius: var(--md-shape-lg);
+  overflow: hidden;
+  box-shadow: var(--md-elevation-1);
+  border: 1px solid var(--md-outline-variant);
+  font-size: 0.9rem;
+  background: var(--md-surface-container-lowest);
+}
+
+caption {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--md-on-surface-variant);
+  text-align: left;
+  padding: 0 0 0.75rem;
+  caption-side: top;
+}
+
+thead {
+  background-color: var(--md-surface-container-low);
+}
+
+thead th {
+  padding: 0.85rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--md-on-surface-variant);
+  border-bottom: 1px solid var(--md-outline-variant);
+  text-align: left;
+}
+
+tbody tr {
+  transition: background-color 150ms ease;
+  border-bottom: 1px solid var(--md-outline-variant);
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: rgba(26, 115, 232, 0.04);
+}
+
+tbody td {
+  padding: 0.85rem 1rem;
+  color: var(--md-on-surface);
+  vertical-align: middle;
+  border-bottom: 1px solid var(--md-outline-variant);
+  font-size: 0.9rem;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tfoot {
+  background-color: var(--md-surface-container-low);
+  border-top: 1px solid var(--md-outline);
+}
+
+tfoot td, tfoot th {
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--md-on-surface-variant);
+}
+
+/* Table buttons — smaller, discreet (text button style) */
+table button,
+table input[type="button"],
+table input[type="submit"],
+table input[type="reset"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.65rem;
+  font-family: var(--md-font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--md-primary);
+  background: transparent;
+  border: none;
+  border-radius: var(--md-shape-full);
+  cursor: pointer;
+  transition: background-color 150ms ease;
+  white-space: nowrap;
+  height: auto;
+  box-shadow: none;
+  text-transform: none;
+}
+
+table button:hover,
+table input[type="button"]:hover,
+table input[type="submit"]:hover,
+table input[type="reset"]:hover {
+  background-color: rgba(26, 115, 232, 0.08);
+  transform: none;
+  box-shadow: none;
+}
+
+table button:active,
+table input[type="button"]:active,
+table input[type="submit"]:active,
+table input[type="reset"]:active {
+  background-color: rgba(26, 115, 232, 0.16);
+}
+
+table input[type="submit"] {
+  color: var(--md-error);
+}
+table input[type="submit"]:hover {
+  background-color: rgba(179, 38, 30, 0.08);
+}
+
+/* ============================================================
+   FORMS & INPUTS — Material Design 3 Filled & Outlined
+   ============================================================ */
+
+form {
+  background: var(--md-surface-container-low);
+  border-radius: var(--md-shape-xl);
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: var(--md-elevation-1);
+}
+
+fieldset {
+  border: 1px solid var(--md-outline-variant);
+  border-radius: var(--md-shape-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+legend {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--md-primary);
+  padding: 0 0.5rem;
+}
+
+label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--md-on-surface-variant);
+  margin-bottom: 0.4rem;
+  transition: color 150ms ease;
+}
+
+/* Filled text field style */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--md-font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--md-on-surface);
+  background-color: var(--md-surface-container-highest);
+  border: none;
+  border-bottom: 1px solid var(--md-outline);
+  border-radius: var(--md-shape-xs) var(--md-shape-xs) 0 0;
+  outline: none;
+  transition: border-bottom-color 150ms ease, border-bottom-width 150ms ease;
+  margin-bottom: 1.25rem;
+  appearance: none;
+  -webkit-appearance: none;
+  line-height: 1.5;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-bottom: 2px solid var(--md-primary);
+  background-color: var(--md-surface-container-highest);
+}
+
+input:focus + label,
+textarea:focus + label {
+  color: var(--md-primary);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--md-on-surface-variant);
+  opacity: 0.7;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  background-color: rgba(28, 27, 31, 0.04);
+  color: rgba(28, 27, 31, 0.38);
+  border-bottom-color: rgba(28, 27, 31, 0.38);
+  cursor: not-allowed;
+}
+
+input:invalid:not(:placeholder-shown) {
+  border-bottom-color: var(--md-error);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2379747e' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+input[type="range"] {
+  width: 100%;
+  height: 4px;
+  padding: 0;
+  background: var(--md-primary-container);
+  border: none;
+  border-radius: var(--md-shape-full);
+  cursor: pointer;
+  margin-bottom: 1.25rem;
+  background-color: var(--md-outline-variant);
+  border-bottom: none;
+  border-radius: var(--md-shape-full);
+  outline: none;
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--md-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: var(--md-elevation-2);
+  transition: box-shadow 150ms ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 10px rgba(26, 115, 232, 0.08);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--md-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: var(--md-elevation-2);
+}
+
+input[type="color"] {
+  padding: 0.2rem 0.4rem;
+  height: 3rem;
+  cursor: pointer;
+  border-radius: var(--md-shape-xs) var(--md-shape-xs) 0 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+  width: 18px;
+  height: 18px;
+  margin: 0 0.5rem 0 0;
+  padding: 0;
+  border: none;
+  border-bottom: none;
+  cursor: pointer;
+  accent-color: var(--md-primary);
+  background: none;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--md-font-body);
+  font-size: 0.9rem;
+  background: var(--md-surface-container-highest);
+  border: none;
+  border-bottom: 1px solid var(--md-outline);
+  border-radius: var(--md-shape-xs) var(--md-shape-xs) 0 0;
+  margin-bottom: 1.25rem;
+  cursor: pointer;
+  color: var(--md-on-surface-variant);
+}
+
+/* ============================================================
+   BUTTONS — Material Design 3 Variants
+   ============================================================ */
+
+/* Filled button (default) */
+button,
+input[type="button"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  font-family: var(--md-font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.006em;
+  color: var(--md-on-primary);
+  background: var(--md-primary);
+  border: none;
+  border-radius: var(--md-shape-full);
+  cursor: pointer;
+  transition: box-shadow 150ms ease, background-color 150ms ease;
+  box-shadow: var(--md-elevation-1);
+  height: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  line-height: 1;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 150ms ease;
+  border-radius: inherit;
+}
+
+button:hover {
+  box-shadow: var(--md-elevation-2);
+}
+
+button:hover::after {
+  opacity: var(--md-state-hover);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--md-primary);
+  outline-offset: 2px;
+}
+
+button:active {
+  box-shadow: var(--md-elevation-1);
+}
+
+button:active::after {
+  opacity: var(--md-state-pressed);
+}
+
+/* Filled Tonal */
+input[type="button"] {
+  color: var(--md-on-secondary-container);
+  background: var(--md-secondary-container);
+  box-shadow: none;
+}
+
+input[type="button"]:hover {
+  box-shadow: var(--md-elevation-1);
+}
+
+/* Filled - submit = danger/action tonal */
+input[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.5rem;
+  font-family: var(--md-font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.006em;
+  color: var(--md-on-primary);
+  background: var(--md-primary);
+  border: none;
+  border-radius: var(--md-shape-full);
+  cursor: pointer;
+  transition: box-shadow 150ms ease;
+  box-shadow: var(--md-elevation-1);
+  height: 2.5rem;
+  line-height: 1;
+}
+
+input[type="submit"]:hover {
+  box-shadow: var(--md-elevation-2);
+  filter: brightness(1.05);
+}
+
+input[type="submit"]:active {
+  box-shadow: var(--md-elevation-1);
+}
+
+/* Outlined / reset */
+input[type="reset"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.5rem;
+  font-family: var(--md-font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.006em;
+  color: var(--md-primary);
+  background: transparent;
+  border: 1px solid var(--md-outline);
+  border-radius: var(--md-shape-full);
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease;
+  height: 2.5rem;
+  line-height: 1;
+  box-shadow: none;
+}
+
+input[type="reset"]:hover {
+  background-color: rgba(26, 115, 232, 0.08);
+  border-color: var(--md-primary);
+  box-shadow: none;
+}
+
+button:disabled,
+input[type="button"]:disabled,
+input[type="submit"]:disabled,
+input[type="reset"]:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ============================================================
+   PROGRESS & METER — Material Design 3 Linear
+   ============================================================ */
+
+progress {
+  display: block;
+  width: 100%;
+  height: 4px;
+  border: none;
+  border-radius: var(--md-shape-full);
+  overflow: hidden;
+  margin-bottom: 1rem;
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--md-primary-container);
+}
+
+progress::-webkit-progress-bar {
+  background: var(--md-primary-container);
+  border-radius: var(--md-shape-full);
+}
+
+progress::-webkit-progress-value {
+  background: var(--md-primary);
+  border-radius: var(--md-shape-full);
+  transition: width 300ms ease;
+}
+
+progress::-moz-progress-bar {
+  background: var(--md-primary);
+  border-radius: var(--md-shape-full);
+}
+
+meter {
+  display: block;
+  width: 100%;
+  height: 4px;
+  border: none;
+  border-radius: var(--md-shape-full);
+  margin-bottom: 1rem;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--md-primary-container);
+}
+
+meter::-webkit-meter-bar {
+  border: none;
+  background: var(--md-primary-container);
+  border-radius: var(--md-shape-full);
+}
+
+meter::-webkit-meter-optimum-value {
+  background: var(--md-tertiary);
+  border-radius: var(--md-shape-full);
+}
+
+meter::-webkit-meter-suboptimum-value {
+  background: #f9a825;
+  border-radius: var(--md-shape-full);
+}
+
+meter::-webkit-meter-even-less-good-value {
+  background: var(--md-error);
+  border-radius: var(--md-shape-full);
+}
+
+/* ============================================================
+   DETAILS & SUMMARY — Expansion panel / Accordion
+   ============================================================ */
+
+details {
+  border: 1px solid var(--md-outline-variant);
+  border-radius: var(--md-shape-lg);
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  transition: box-shadow 150ms ease;
+}
+
+details[open] {
+  box-shadow: var(--md-elevation-1);
+}
+
+summary {
+  padding: 1rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--md-on-surface);
+  cursor: pointer;
+  background: var(--md-surface-container-low);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  list-style: none;
+  user-select: none;
+  transition: background-color 150ms ease;
+}
+
+summary::-webkit-details-marker { display: none; }
+
+summary::after {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--md-on-surface-variant);
+  border-bottom: 2px solid var(--md-on-surface-variant);
+  transform: rotate(45deg);
+  margin-left: auto;
+  transition: transform 200ms ease;
+  margin-top: -3px;
+}
+
+details[open] summary::after {
+  transform: rotate(-135deg);
+  margin-top: 3px;
+}
+
+summary:hover {
+  background-color: rgba(28, 27, 31, 0.04);
+}
+
+details[open] summary {
+  border-bottom: 1px solid var(--md-outline-variant);
+}
+
+details > *:not(summary) {
+  padding: 1rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--md-on-surface-variant);
+  line-height: 1.6;
+  background: var(--md-surface-container-lowest);
+}
+
+/* ============================================================
+   DIALOG — Material Design 3
+   ============================================================ */
+
+dialog {
+  border: none;
+  border-radius: var(--md-shape-xl);
+  padding: 1.5rem;
+  background: var(--md-surface-container-high);
+  max-width: 560px;
+  width: calc(100% - 3rem);
+  box-shadow: var(--md-elevation-5);
+  color: var(--md-on-surface);
+  font-family: var(--md-font-body);
+}
+
+dialog::backdrop {
+  background: var(--md-scrim);
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+
+nav {
+  background: var(--md-surface-container);
+  border-radius: var(--md-shape-xl);
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--md-elevation-2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+nav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--md-on-surface-variant);
+  text-decoration: none;
+  border-radius: var(--md-shape-full);
+  transition: background-color 150ms ease, color 150ms ease;
+  background: none;
+  margin: -1px -3px;
+}
+
+nav a:hover {
+  background-color: rgba(28, 27, 31, 0.08);
+  color: var(--md-on-surface);
+  text-decoration: none;
+}
+
+nav a:first-child {
+  color: var(--md-on-surface);
+  background: var(--md-secondary-container);
+}
+
+nav a:visited {
+  color: var(--md-on-surface-variant);
+}
+
+/* ============================================================
+   HEADER, MAIN, FOOTER, ASIDE, SECTION, ARTICLE
+   ============================================================ */
+
+header {
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--md-outline-variant);
+}
+
+footer {
+  border-top: 1px solid var(--md-outline-variant);
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--md-on-surface-variant);
+  letter-spacing: 0.02em;
+}
+
+main {
+  display: block;
+}
+
+aside {
+  background: var(--md-secondary-container);
+  color: var(--md-on-secondary-container);
+  border-radius: var(--md-shape-lg);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+  box-shadow: var(--md-elevation-1);
+  position: relative;
+}
+
+aside a {
+  color: var(--md-secondary);
+}
+
+aside a:hover {
+  background-color: rgba(94, 106, 210, 0.1);
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+article {
+  background: var(--md-surface-container-low);
+  border-radius: var(--md-shape-xl);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--md-elevation-1);
+  transition: box-shadow 150ms ease;
+}
+
+article:hover {
+  box-shadow: var(--md-elevation-2);
+}
+
+/* ============================================================
+   ADDRESS
+   ============================================================ */
+
+address {
+  font-style: normal;
+  background: var(--md-surface-container);
+  border-left: 3px solid var(--md-tertiary);
+  border-radius: 0 var(--md-shape-sm) var(--md-shape-sm) 0;
+  padding: 0.85rem 1.25rem;
+  margin: 1.25rem 0;
+  font-size: 0.9rem;
+  color: var(--md-on-surface-variant);
+}
+
+/* ============================================================
+   SELECTION
+   ============================================================ */
+
+::selection {
+  background-color: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--md-outline-variant);
+  border-radius: var(--md-shape-full);
+  border: 2px solid var(--md-surface);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-outline);
+}
+
+/* ============================================================
+   FOCUS VISIBLE — Accessibility
+   ============================================================ */
+
+:focus-visible {
+  outline: 3px solid var(--md-primary);
+  outline-offset: 2px;
+  border-radius: var(--md-shape-xs);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  form {
+    padding: 1.25rem;
+  }
+
+  nav {
+    gap: 0.1rem;
+  }
+
+  nav a {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.75rem;
+  }
+
+  article {
+    padding: 1.25rem;
+  }
+
+  table {
+    font-size: 0.8rem;
+  }
+
+  thead th, tbody td, tfoot td, tfoot th {
+    padding: 0.6rem 0.75rem;
+  }
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+
+@media print {
+  * {
+    box-shadow: none !important;
+  }
+
+  body {
+    max-width: 100%;
+    font-size: 12pt;
+  }
+
+  nav, aside {
+    display: none;
+  }
+
+  a::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.8em;
+    color: grey;
+  }
+}
